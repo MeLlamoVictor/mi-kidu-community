@@ -1,0 +1,16 @@
+.DS_Store
+.build/
+.swiftpm/
+DerivedData/
+**/xcuserdata/
+Config/Signing.local.xcconfig
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.db
+*.pem
+*.p12
+*.mobileprovision
+*.log

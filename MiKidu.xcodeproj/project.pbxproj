@@ -1,0 +1,1015 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 77;
+	objects = {
+		02AD76072A7D4DCBD2611F1B = {
+			isa = XCConfigurationList;
+			buildConfigurations = (8D6350D85B4C251EE3FA50BD, F975F9796B5131F7BCE3CFE3,);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release";
+		};
+		0349F94A6040739E1CA249EB = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduCore";
+		};
+		03F0F7E11D2C4F9857945A8A = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02AD76072A7D4DCBD2611F1B;
+			buildPhases = (
+							"8FBD876951ABF4A30FC57B70",
+							"C1F4662C79AC01CE07FA2DBD",
+							"5EB39D2858C07F2E5C43C113",
+						);
+			buildRules = ();
+			dependencies = ();
+			name = "Mi Kidu Watch";
+			packageProductDependencies = (
+							"7F87772E127C813C937C447C",
+							"3F3AA91FC9E1478F6623F4AF",
+							"2FA7D87782140B7E018E0F0C",
+							"31200B5E6CAFC9CCCC8A8EEC",
+						);
+			productName = "Mi Kidu Watch";
+			productReference = E3B5FAACE34C76809E455956;
+			productType = "com.apple.product-type.application";
+		};
+		0BA8FA3CE14E7E447DE74A37 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (91886DE924A7ED7F64FAD3DF, 8E4A865746C654EA2718F94D,);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release";
+		};
+		0DFDD6DE186B184C7A475286 = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"AD02101ED3B7E5BEBC04CD25",
+						);
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E89170712AD47AC4FEED069 = {
+			isa = PBXGroup;
+			children = (
+							"F0268BB9E9B8D335E792CBD4",
+						);
+			path = "Widget";
+			sourceTree = "<group>";
+		};
+		124CBE05530D824EE82BCFB3 = {
+			isa = PBXBuildFile;
+			fileRef = F0268BB9E9B8D335E792CBD4;
+		};
+		16AFD5269FCE120455EC2E70 = {
+			isa = PBXGroup;
+			children = (
+							"3E23D9D7EB101D6DE4EC8304",
+							"9060584D3AF074594A19DDDE",
+							"EE056620C9A98749D7DFFC35",
+							"AED00189BA5AF0D5BF2E994B",
+						);
+			sourceTree = "<group>";
+		};
+		1B100239BD84969DBF5DF122 = {
+			isa = PBXBuildFile;
+			fileRef = 49503BB4602E4013F3D11845;
+		};
+		1C2A78E4E999EDA40A49ECCB = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"3056B1DDDCBAFC76C308DA36",
+							"E94D050EB39C690C8BAE84AE",
+							"B29473AB8DB3FBD1E37EEDD7",
+							"B0C5FCB9A151584C8224C5FA",
+							"4FBA53F8643B9D7B8411104A",
+						);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20908DA4B11296AAB9A304EE = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduWidgetWatch";
+		};
+		22AC5A7E94D0F2839360E067 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/Signing.local.xcconfig.example";
+			sourceTree = "SOURCE_ROOT";
+		};
+		24012D5839D50338B4CB9B95 = {
+			isa = PBXFileReference;
+			explicitFileType = "wrapper.app-extension";
+			includeInIndex = 0;
+			path = "MiKiduWidget.appex";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		25040B4D89DCF176C9347C56 = {
+			isa = PBXBuildFile;
+			productRef = 47F0E0ABBD92071D40C447C1;
+		};
+		26AF97FC24B7CD1F20214E6F = {
+			isa = PBXFileReference;
+			lastKnownFileType = "sourcecode.swift";
+			path = "MiKiduApp.swift";
+			sourceTree = "<group>";
+		};
+		2B79BE1DEF2C235878793272 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "sourcecode.swift";
+			path = "KiduLocalEnvironment.swift";
+			sourceTree = "<group>";
+		};
+		2CC68C7ACEFFF888154C195A = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ".";
+		};
+		2FA7D87782140B7E018E0F0C = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduWidgetWatch";
+		};
+		3056B1DDDCBAFC76C308DA36 = {
+			isa = PBXBuildFile;
+			fileRef = 26AF97FC24B7CD1F20214E6F;
+		};
+		31200B5E6CAFC9CCCC8A8EEC = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduPresentation";
+		};
+		3142B305DFBAFA57C7C65467 = {
+			isa = PBXGroup;
+			children = (
+							"DEBA41A2409DA8CA221B1BFA",
+							"D9619EDC6A6E3D60A3AC1F27",
+							"49503BB4602E4013F3D11845",
+							"2B79BE1DEF2C235878793272",
+						);
+			name = "Shared";
+			path = "Shared";
+			sourceTree = "<group>";
+		};
+		39A1B1E9F398DAEBEBC4A94E = {
+			isa = XCConfigurationList;
+			buildConfigurations = (500F53485BE70901A682C984, F4217BA3F6618AB10E632C84,);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release";
+		};
+		3E23D9D7EB101D6DE4EC8304 = {
+			isa = PBXGroup;
+			children = (
+							"3142B305DFBAFA57C7C65467",
+							"EE0FBD69AC879302C2C22879",
+							"5B909212F08AF9CBBC9078A0",
+							"0E89170712AD47AC4FEED069",
+							"C7D6302445BA3C7B17592A9D",
+						);
+			name = "Apps";
+			path = "Apps";
+			sourceTree = "<group>";
+		};
+		3F3AA91FC9E1478F6623F4AF = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduShell";
+		};
+		41803F60A348C1822E1EF5F1 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39A1B1E9F398DAEBEBC4A94E;
+			buildPhases = (
+							"9BBA3EBD2AAD3CD27BDC55F8",
+							"DE3C95FC9C9DB69B97132BC6",
+							"E600E822ACF972EE82ECA9CE",
+						);
+			buildRules = ();
+			dependencies = ();
+			name = "Mi Kidu Widget";
+			packageProductDependencies = (
+							"E7548D2CBF08851C1965C3F7",
+							"494F17544E20348DDB6B11CD",
+							"AE599C404D0E523F7555937C",
+						);
+			productName = "Mi Kidu Widget";
+			productReference = 24012D5839D50338B4CB9B95;
+			productType = "com.apple.product-type.app-extension";
+		};
+		43D96D58A780A0F6EC92C900 = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							CODE_SIGN_ENTITLEMENTS = "Config/MiKidu-iOS.entitlements";
+							CODE_SIGN_STYLE = "Automatic";
+							CURRENT_PROJECT_VERSION = "1";
+							DEVELOPMENT_TEAM = "$(MIKIDU_DEVELOPMENT_TEAM)";
+							GENERATE_INFOPLIST_FILE = "NO";
+							INFOPLIST_FILE = "Config/Info-iOS.plist";
+							MARKETING_VERSION = "0.1";
+							PRODUCT_BUNDLE_IDENTIFIER = "org.example.mikidu.community";
+							PRODUCT_NAME = "MiKidu";
+							SDKROOT = "iphoneos";
+							SKIP_INSTALL = "NO";
+							SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+							IPHONEOS_DEPLOYMENT_TARGET = "18.0";
+							SWIFT_VERSION = "6.0";
+							TARGETED_DEVICE_FAMILY = "1,2";
+							LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+							ONLY_ACTIVE_ARCH = "YES";
+							SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+			};
+			name = "Debug";
+		};
+		4502164C7DD608234058DB6A = {
+			isa = XCConfigurationList;
+			buildConfigurations = (43D96D58A780A0F6EC92C900, 5CD95AA835CD044B99089FB6,);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release";
+		};
+		47F0E0ABBD92071D40C447C1 = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduWidgetWatch";
+		};
+		494F17544E20348DDB6B11CD = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduWidgetWatch";
+		};
+		49503BB4602E4013F3D11845 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "sourcecode.swift";
+			path = "KiduExperience.swift";
+			sourceTree = "<group>";
+		};
+		4D1035923FB44EC4999A8848 = {
+			isa = PBXBuildFile;
+			fileRef = 2B79BE1DEF2C235878793272;
+		};
+		4EBB34A2A64309DA126A117E = {
+			isa = PBXBuildFile;
+			productRef = 0349F94A6040739E1CA249EB;
+		};
+		4FBA53F8643B9D7B8411104A = {
+			isa = PBXBuildFile;
+			fileRef = 2B79BE1DEF2C235878793272;
+		};
+		500F53485BE70901A682C984 = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							CODE_SIGN_ENTITLEMENTS = "Config/MiKidu-Widget.entitlements";
+							CODE_SIGN_STYLE = "Automatic";
+							CURRENT_PROJECT_VERSION = "1";
+							DEVELOPMENT_TEAM = "$(MIKIDU_DEVELOPMENT_TEAM)";
+							GENERATE_INFOPLIST_FILE = "NO";
+							INFOPLIST_FILE = "Config/Info-Widget.plist";
+							MARKETING_VERSION = "0.1";
+							PRODUCT_BUNDLE_IDENTIFIER = "org.example.mikidu.community.widget";
+							PRODUCT_NAME = "MiKiduWidget";
+							SDKROOT = "iphoneos";
+							SKIP_INSTALL = "YES";
+							SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+							IPHONEOS_DEPLOYMENT_TARGET = "18.0";
+							SWIFT_VERSION = "6.0";
+							TARGETED_DEVICE_FAMILY = "1,2";
+							APPLICATION_EXTENSION_API_ONLY = "YES";
+							LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
+							ONLY_ACTIVE_ARCH = "YES";
+							SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+			};
+			name = "Debug";
+		};
+		512FD8964A0D9EEFFEE4FF44 = {
+			isa = PBXBuildFile;
+			fileRef = D9619EDC6A6E3D60A3AC1F27;
+		};
+		57A4A6C459C6E0F1303C33ED = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduShell";
+		};
+		5B909212F08AF9CBBC9078A0 = {
+			isa = PBXGroup;
+			children = (
+							"C2856D91060524871C73D6DF",
+						);
+			path = "iOS";
+			sourceTree = "<group>";
+		};
+		5CD95AA835CD044B99089FB6 = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							CODE_SIGN_ENTITLEMENTS = "Config/MiKidu-iOS.entitlements";
+							CODE_SIGN_STYLE = "Automatic";
+							CURRENT_PROJECT_VERSION = "1";
+							DEVELOPMENT_TEAM = "$(MIKIDU_DEVELOPMENT_TEAM)";
+							GENERATE_INFOPLIST_FILE = "NO";
+							INFOPLIST_FILE = "Config/Info-iOS.plist";
+							MARKETING_VERSION = "0.1";
+							PRODUCT_BUNDLE_IDENTIFIER = "org.example.mikidu.community";
+							PRODUCT_NAME = "MiKidu";
+							SDKROOT = "iphoneos";
+							SKIP_INSTALL = "NO";
+							SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+							IPHONEOS_DEPLOYMENT_TARGET = "18.0";
+							SWIFT_VERSION = "6.0";
+							TARGETED_DEVICE_FAMILY = "1,2";
+							LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+							ONLY_ACTIVE_ARCH = "NO";
+							SWIFT_OPTIMIZATION_LEVEL = "-O";
+							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+			};
+			name = "Release";
+		};
+		5E3B67BDA46AD0A2D32E2D78 = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							CODE_SIGN_ENTITLEMENTS = "Config/MiKidu-Mac.entitlements";
+							CODE_SIGN_STYLE = "Automatic";
+							CURRENT_PROJECT_VERSION = "1";
+							DEVELOPMENT_TEAM = "$(MIKIDU_DEVELOPMENT_TEAM)";
+							GENERATE_INFOPLIST_FILE = "NO";
+							INFOPLIST_FILE = "Config/Info-Mac.plist";
+							MARKETING_VERSION = "0.1";
+							PRODUCT_BUNDLE_IDENTIFIER = "org.example.mikidu.community";
+							PRODUCT_NAME = "MiKiduMac";
+							SDKROOT = "macosx";
+							SKIP_INSTALL = "NO";
+							SUPPORTED_PLATFORMS = "macosx";
+							MACOSX_DEPLOYMENT_TARGET = "15.0";
+							SWIFT_VERSION = "6.0";
+							ONLY_ACTIVE_ARCH = "YES";
+							SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+			};
+			name = "Debug";
+		};
+		5EB39D2858C07F2E5C43C113 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F2A087932680FEAF123BD92 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/Info-iOS.plist";
+			sourceTree = "SOURCE_ROOT";
+		};
+		6675CB75B45476F3C502322B = {
+			isa = PBXBuildFile;
+			fileRef = DEBA41A2409DA8CA221B1BFA;
+		};
+		6C982ECA3C4CF114954040DC = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduPresentation";
+		};
+		70A9574347F55672C5ADDD7A = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/MiKidu-Widget.entitlements";
+			sourceTree = "SOURCE_ROOT";
+		};
+		70E5CC250EBB5C29E9C89219 = {
+			isa = PBXBuildFile;
+			productRef = 3F3AA91FC9E1478F6623F4AF;
+		};
+		7116BD9247DCBD520DA78EAA = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduCore";
+		};
+		74903CA1784BC5C7FA7A6C4B = {
+			isa = PBXBuildFile;
+			fileRef = D9619EDC6A6E3D60A3AC1F27;
+		};
+		7520CB72B19368600933253E = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"7571CC9803633B5D14B62728",
+							"CFCE671DCC65BB64AF2C1D46",
+							"25040B4D89DCF176C9347C56",
+							"D7AA07F2BB57919DD65A5D8B",
+						);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7571CC9803633B5D14B62728 = {
+			isa = PBXBuildFile;
+			productRef = 7116BD9247DCBD520DA78EAA;
+		};
+		7656E4A279E6FA24A87A0C09 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "tools/generate_project.py";
+			sourceTree = "SOURCE_ROOT";
+		};
+		78F2A970C18B0265EF6E891B = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduPresentation";
+		};
+		7C4B9228B7B3490229FBB104 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (5E3B67BDA46AD0A2D32E2D78, AF5E300A89C5AD8127581D17,);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release";
+		};
+		7D28D75EEA8F9FF56F73EA79 = {
+			isa = PBXBuildFile;
+			productRef = 94A8BFB7CED4B74EF140890B;
+		};
+		7F87772E127C813C937C447C = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduCore";
+		};
+		80E8A70357BC9265842E9539 = {
+			isa = PBXBuildFile;
+			fileRef = 49503BB4602E4013F3D11845;
+		};
+		814CCB5333A1A0E1D2F47117 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"4EBB34A2A64309DA126A117E",
+							"7D28D75EEA8F9FF56F73EA79",
+							"D9FC5FA1B595C8DA5EE416B5",
+							"9DDD0CFF60D324D7F19952A4",
+						);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81C2E5B469451EA67B1D79D0 = {
+			isa = PBXBuildFile;
+			fileRef = 2B79BE1DEF2C235878793272;
+		};
+		8217C125D4A9C8B9A1E8A229 = {
+			isa = PBXBuildFile;
+			productRef = 7F87772E127C813C937C447C;
+		};
+		85F4897644C486B0A1AE1EA3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/Info-Mac.plist";
+			sourceTree = "SOURCE_ROOT";
+		};
+		8D6350D85B4C251EE3FA50BD = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							CODE_SIGN_ENTITLEMENTS = "Config/MiKidu-Watch.entitlements";
+							CODE_SIGN_STYLE = "Automatic";
+							CURRENT_PROJECT_VERSION = "1";
+							DEVELOPMENT_TEAM = "$(MIKIDU_DEVELOPMENT_TEAM)";
+							GENERATE_INFOPLIST_FILE = "NO";
+							INFOPLIST_FILE = "Config/Info-Watch.plist";
+							MARKETING_VERSION = "0.1";
+							PRODUCT_BUNDLE_IDENTIFIER = "org.example.mikidu.community.watch";
+							PRODUCT_NAME = "MiKiduWatch";
+							SDKROOT = "watchos";
+							SKIP_INSTALL = "YES";
+							SUPPORTED_PLATFORMS = "watchos watchsimulator";
+							WATCHOS_DEPLOYMENT_TARGET = "11.0";
+							SWIFT_VERSION = "6.0";
+							TARGETED_DEVICE_FAMILY = "4";
+							LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+							ONLY_ACTIVE_ARCH = "YES";
+							SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+			};
+			name = "Debug";
+		};
+		8E4A865746C654EA2718F94D = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							ALWAYS_SEARCH_USER_PATHS = "NO";
+							CLANG_ENABLE_MODULES = "YES";
+							ENABLE_USER_SCRIPT_SANDBOXING = "YES";
+							SWIFT_VERSION = "6.0";
+			};
+			name = "Release";
+		};
+		8FBD876951ABF4A30FC57B70 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"F81C868AF944F80F05E80D2B",
+							"6675CB75B45476F3C502322B",
+							"512FD8964A0D9EEFFEE4FF44",
+							"1B100239BD84969DBF5DF122",
+							"4D1035923FB44EC4999A8848",
+						);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9060584D3AF074594A19DDDE = {
+			isa = PBXGroup;
+			children = (
+							"85F4897644C486B0A1AE1EA3",
+							"EC5D8308038B6FD102BAE5C4",
+							"E9BBBD4362E8617193C28767",
+							"5F2A087932680FEAF123BD92",
+							"B428889DDA29225269B560D8",
+							"F7E64777246C3B8930D87C5C",
+							"70A9574347F55672C5ADDD7A",
+							"AE087ACAF47787103D1E7212",
+							"E1468633739851556142D2D4",
+							"22AC5A7E94D0F2839360E067",
+						);
+			name = "Config";
+			path = "Config";
+			sourceTree = "<group>";
+		};
+		91886DE924A7ED7F64FAD3DF = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							ALWAYS_SEARCH_USER_PATHS = "NO";
+							CLANG_ENABLE_MODULES = "YES";
+							ENABLE_USER_SCRIPT_SANDBOXING = "YES";
+							SWIFT_VERSION = "6.0";
+			};
+			name = "Debug";
+		};
+		94A8BFB7CED4B74EF140890B = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduShell";
+		};
+		94DEEF3F27C51954364CACE3 = {
+			isa = PBXBuildFile;
+			fileRef = 2B79BE1DEF2C235878793272;
+		};
+		9BBA3EBD2AAD3CD27BDC55F8 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"124CBE05530D824EE82BCFB3",
+							"94DEEF3F27C51954364CACE3",
+						);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DDD0CFF60D324D7F19952A4 = {
+			isa = PBXBuildFile;
+			productRef = 78F2A970C18B0265EF6E891B;
+		};
+		9E770251821D041FADF3FBB7 = {
+			isa = PBXTargetDependency;
+			target = 03F0F7E11D2C4F9857945A8A;
+			targetProxy = DE5F57A43EFBA649F37B44F1;
+		};
+		A4867D63306BBA98B67E91C9 = {
+			isa = PBXBuildFile;
+			productRef = 2FA7D87782140B7E018E0F0C;
+		};
+		ABEEDC101314B9261AB7591F = {
+			isa = PBXBuildFile;
+			productRef = 494F17544E20348DDB6B11CD;
+		};
+		AD02101ED3B7E5BEBC04CD25 = {
+			isa = PBXBuildFile;
+			fileRef = 24012D5839D50338B4CB9B95;
+			settings = { ATTRIBUTES = (
+							"CodeSignOnCopy",
+							"RemoveHeadersOnCopy",
+						); };
+		};
+		AE087ACAF47787103D1E7212 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/MiKidu-iOS.entitlements";
+			sourceTree = "SOURCE_ROOT";
+		};
+		AE599C404D0E523F7555937C = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduPresentation";
+		};
+		AED00189BA5AF0D5BF2E994B = {
+			isa = PBXGroup;
+			children = (
+							"E260E5736EE50C7DC27DA750",
+							"B22156FC00EC1153746603D7",
+							"24012D5839D50338B4CB9B95",
+							"E3B5FAACE34C76809E455956",
+						);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		AF5E300A89C5AD8127581D17 = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							CODE_SIGN_ENTITLEMENTS = "Config/MiKidu-Mac.entitlements";
+							CODE_SIGN_STYLE = "Automatic";
+							CURRENT_PROJECT_VERSION = "1";
+							DEVELOPMENT_TEAM = "$(MIKIDU_DEVELOPMENT_TEAM)";
+							GENERATE_INFOPLIST_FILE = "NO";
+							INFOPLIST_FILE = "Config/Info-Mac.plist";
+							MARKETING_VERSION = "0.1";
+							PRODUCT_BUNDLE_IDENTIFIER = "org.example.mikidu.community";
+							PRODUCT_NAME = "MiKiduMac";
+							SDKROOT = "macosx";
+							SKIP_INSTALL = "NO";
+							SUPPORTED_PLATFORMS = "macosx";
+							MACOSX_DEPLOYMENT_TARGET = "15.0";
+							SWIFT_VERSION = "6.0";
+							ONLY_ACTIVE_ARCH = "NO";
+							SWIFT_OPTIMIZATION_LEVEL = "-O";
+							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+			};
+			name = "Release";
+		};
+		B0C5FCB9A151584C8224C5FA = {
+			isa = PBXBuildFile;
+			fileRef = 49503BB4602E4013F3D11845;
+		};
+		B21D30A4F4CE0D013F321D87 = {
+			isa = PBXProject;
+			attributes = {
+							BuildIndependentTargetsInParallel = YES;
+							LastSwiftUpdateCheck = 2700;
+							LastUpgradeCheck = 2700;
+							TargetAttributes = {
+									ECB3464CE9EBFB78E9EAA0D7 = { CreatedOnToolsVersion = 27.2; };
+									FDD1055599BC60BAFA4FBC4E = { CreatedOnToolsVersion = 27.2; };
+									41803F60A348C1822E1EF5F1 = { CreatedOnToolsVersion = 27.2; };
+									03F0F7E11D2C4F9857945A8A = { CreatedOnToolsVersion = 27.2; };
+							};
+						};
+			buildConfigurationList = 0BA8FA3CE14E7E447DE74A37;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = "es";
+			hasScannedForEncodings = 0;
+			knownRegions = ("es", Base,);
+			mainGroup = 16AFD5269FCE120455EC2E70;
+			packageReferences = (
+							2CC68C7ACEFFF888154C195A,
+						);
+			productRefGroup = AED00189BA5AF0D5BF2E994B;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+							"ECB3464CE9EBFB78E9EAA0D7",
+							"FDD1055599BC60BAFA4FBC4E",
+							"41803F60A348C1822E1EF5F1",
+							"03F0F7E11D2C4F9857945A8A",
+						);
+		};
+		B22156FC00EC1153746603D7 = {
+			isa = PBXFileReference;
+			explicitFileType = "wrapper.application";
+			includeInIndex = 0;
+			path = "MiKidu.app";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		B29473AB8DB3FBD1E37EEDD7 = {
+			isa = PBXBuildFile;
+			fileRef = D9619EDC6A6E3D60A3AC1F27;
+		};
+		B3C621891003B3B15F461A7A = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"DA7CF9748867EF4F7F6AD06D",
+						);
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B428889DDA29225269B560D8 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/MiKidu-Mac.entitlements";
+			sourceTree = "SOURCE_ROOT";
+		};
+		BCAA438255FB82EE61FDF465 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0D5BB1DB6573A1D56E1519E = {
+			isa = PBXBuildFile;
+			productRef = AE599C404D0E523F7555937C;
+		};
+		C1EAA0EC298460BB02015054 = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F4662C79AC01CE07FA2DBD = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"8217C125D4A9C8B9A1E8A229",
+							"70E5CC250EBB5C29E9C89219",
+							"A4867D63306BBA98B67E91C9",
+							"E4691A0AFF5889918E92E912",
+						);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2856D91060524871C73D6DF = {
+			isa = PBXFileReference;
+			lastKnownFileType = "sourcecode.swift";
+			path = "MiKiduApp.swift";
+			sourceTree = "<group>";
+		};
+		C2F631E3CCBF3635CD164ECE = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"EB4EB31784A41C1420AA9F42",
+							"C4FE6B8381D4D547FEEF55DA",
+							"74903CA1784BC5C7FA7A6C4B",
+							"80E8A70357BC9265842E9539",
+							"81C2E5B469451EA67B1D79D0",
+						);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4FE6B8381D4D547FEEF55DA = {
+			isa = PBXBuildFile;
+			fileRef = DEBA41A2409DA8CA221B1BFA;
+		};
+		C7D6302445BA3C7B17592A9D = {
+			isa = PBXGroup;
+			children = (
+							"D158D44E05C6906B68D293DF",
+						);
+			path = "Watch";
+			sourceTree = "<group>";
+		};
+		CED4126939B5EC875380EA9F = {
+			isa = PBXTargetDependency;
+			target = 41803F60A348C1822E1EF5F1;
+			targetProxy = E509942CDF63AA94CF14ED9A;
+		};
+		CFCE671DCC65BB64AF2C1D46 = {
+			isa = PBXBuildFile;
+			productRef = 57A4A6C459C6E0F1303C33ED;
+		};
+		D158D44E05C6906B68D293DF = {
+			isa = PBXFileReference;
+			lastKnownFileType = "sourcecode.swift";
+			path = "MiKiduWatchApp.swift";
+			sourceTree = "<group>";
+		};
+		D7AA07F2BB57919DD65A5D8B = {
+			isa = PBXBuildFile;
+			productRef = 6C982ECA3C4CF114954040DC;
+		};
+		D9619EDC6A6E3D60A3AC1F27 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "sourcecode.swift";
+			path = "KiduCompanionLink.swift";
+			sourceTree = "<group>";
+		};
+		D9FC5FA1B595C8DA5EE416B5 = {
+			isa = PBXBuildFile;
+			productRef = 20908DA4B11296AAB9A304EE;
+		};
+		DA7CF9748867EF4F7F6AD06D = {
+			isa = PBXBuildFile;
+			fileRef = E3B5FAACE34C76809E455956;
+			settings = { ATTRIBUTES = (
+							"CodeSignOnCopy",
+							"RemoveHeadersOnCopy",
+						); };
+		};
+		DE3C95FC9C9DB69B97132BC6 = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+							"E380F35D59C6BBBE8576A3FB",
+							"ABEEDC101314B9261AB7591F",
+							"C0D5BB1DB6573A1D56E1519E",
+						);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE5F57A43EFBA649F37B44F1 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B21D30A4F4CE0D013F321D87;
+			proxyType = 1;
+			remoteGlobalIDString = 03F0F7E11D2C4F9857945A8A;
+			remoteInfo = "Mi Kidu Watch";
+		};
+		DEBA41A2409DA8CA221B1BFA = {
+			isa = PBXFileReference;
+			lastKnownFileType = "sourcecode.swift";
+			path = "KiduAppModel.swift";
+			sourceTree = "<group>";
+		};
+		E1468633739851556142D2D4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/Project.xcconfig";
+			sourceTree = "SOURCE_ROOT";
+		};
+		E260E5736EE50C7DC27DA750 = {
+			isa = PBXFileReference;
+			explicitFileType = "wrapper.application";
+			includeInIndex = 0;
+			path = "MiKiduMac.app";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		E380F35D59C6BBBE8576A3FB = {
+			isa = PBXBuildFile;
+			productRef = E7548D2CBF08851C1965C3F7;
+		};
+		E3B5FAACE34C76809E455956 = {
+			isa = PBXFileReference;
+			explicitFileType = "wrapper.application";
+			includeInIndex = 0;
+			path = "MiKiduWatch.app";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		E4691A0AFF5889918E92E912 = {
+			isa = PBXBuildFile;
+			productRef = 31200B5E6CAFC9CCCC8A8EEC;
+		};
+		E509942CDF63AA94CF14ED9A = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B21D30A4F4CE0D013F321D87;
+			proxyType = 1;
+			remoteGlobalIDString = 41803F60A348C1822E1EF5F1;
+			remoteInfo = "Mi Kidu Widget";
+		};
+		E600E822ACF972EE82ECA9CE = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7548D2CBF08851C1965C3F7 = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CC68C7ACEFFF888154C195A;
+			productName = "MiKiduCore";
+		};
+		E94D050EB39C690C8BAE84AE = {
+			isa = PBXBuildFile;
+			fileRef = DEBA41A2409DA8CA221B1BFA;
+		};
+		E9BBBD4362E8617193C28767 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/Info-Widget.plist";
+			sourceTree = "SOURCE_ROOT";
+		};
+		EB4EB31784A41C1420AA9F42 = {
+			isa = PBXBuildFile;
+			fileRef = C2856D91060524871C73D6DF;
+		};
+		EC5D8308038B6FD102BAE5C4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/Info-Watch.plist";
+			sourceTree = "SOURCE_ROOT";
+		};
+		ECB3464CE9EBFB78E9EAA0D7 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C4B9228B7B3490229FBB104;
+			buildPhases = (
+							"1C2A78E4E999EDA40A49ECCB",
+							"7520CB72B19368600933253E",
+							"C1EAA0EC298460BB02015054",
+						);
+			buildRules = ();
+			dependencies = ();
+			name = "Mi Kidu Mac";
+			packageProductDependencies = (
+							"7116BD9247DCBD520DA78EAA",
+							"57A4A6C459C6E0F1303C33ED",
+							"47F0E0ABBD92071D40C447C1",
+							"6C982ECA3C4CF114954040DC",
+						);
+			productName = "Mi Kidu Mac";
+			productReference = E260E5736EE50C7DC27DA750;
+			productType = "com.apple.product-type.application";
+		};
+		EE056620C9A98749D7DFFC35 = {
+			isa = PBXGroup;
+			children = (
+							"7656E4A279E6FA24A87A0C09",
+						);
+			name = "tools";
+			path = "tools";
+			sourceTree = "<group>";
+		};
+		EE0FBD69AC879302C2C22879 = {
+			isa = PBXGroup;
+			children = (
+							"26AF97FC24B7CD1F20214E6F",
+						);
+			path = "Mac";
+			sourceTree = "<group>";
+		};
+		F0268BB9E9B8D335E792CBD4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "sourcecode.swift";
+			path = "MiKiduWidgetBundle.swift";
+			sourceTree = "<group>";
+		};
+		F4217BA3F6618AB10E632C84 = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							CODE_SIGN_ENTITLEMENTS = "Config/MiKidu-Widget.entitlements";
+							CODE_SIGN_STYLE = "Automatic";
+							CURRENT_PROJECT_VERSION = "1";
+							DEVELOPMENT_TEAM = "$(MIKIDU_DEVELOPMENT_TEAM)";
+							GENERATE_INFOPLIST_FILE = "NO";
+							INFOPLIST_FILE = "Config/Info-Widget.plist";
+							MARKETING_VERSION = "0.1";
+							PRODUCT_BUNDLE_IDENTIFIER = "org.example.mikidu.community.widget";
+							PRODUCT_NAME = "MiKiduWidget";
+							SDKROOT = "iphoneos";
+							SKIP_INSTALL = "YES";
+							SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+							IPHONEOS_DEPLOYMENT_TARGET = "18.0";
+							SWIFT_VERSION = "6.0";
+							TARGETED_DEVICE_FAMILY = "1,2";
+							APPLICATION_EXTENSION_API_ONLY = "YES";
+							LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
+							ONLY_ACTIVE_ARCH = "NO";
+							SWIFT_OPTIMIZATION_LEVEL = "-O";
+							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+			};
+			name = "Release";
+		};
+		F7E64777246C3B8930D87C5C = {
+			isa = PBXFileReference;
+			lastKnownFileType = "file";
+			path = "Config/MiKidu-Watch.entitlements";
+			sourceTree = "SOURCE_ROOT";
+		};
+		F81C868AF944F80F05E80D2B = {
+			isa = PBXBuildFile;
+			fileRef = D158D44E05C6906B68D293DF;
+		};
+		F975F9796B5131F7BCE3CFE3 = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1468633739851556142D2D4;
+			buildSettings = {
+							CODE_SIGN_ENTITLEMENTS = "Config/MiKidu-Watch.entitlements";
+							CODE_SIGN_STYLE = "Automatic";
+							CURRENT_PROJECT_VERSION = "1";
+							DEVELOPMENT_TEAM = "$(MIKIDU_DEVELOPMENT_TEAM)";
+							GENERATE_INFOPLIST_FILE = "NO";
+							INFOPLIST_FILE = "Config/Info-Watch.plist";
+							MARKETING_VERSION = "0.1";
+							PRODUCT_BUNDLE_IDENTIFIER = "org.example.mikidu.community.watch";
+							PRODUCT_NAME = "MiKiduWatch";
+							SDKROOT = "watchos";
+							SKIP_INSTALL = "YES";
+							SUPPORTED_PLATFORMS = "watchos watchsimulator";
+							WATCHOS_DEPLOYMENT_TARGET = "11.0";
+							SWIFT_VERSION = "6.0";
+							TARGETED_DEVICE_FAMILY = "4";
+							LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+							ONLY_ACTIVE_ARCH = "NO";
+							SWIFT_OPTIMIZATION_LEVEL = "-O";
+							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+			};
+			name = "Release";
+		};
+		FDD1055599BC60BAFA4FBC4E = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4502164C7DD608234058DB6A;
+			buildPhases = (
+							"C2F631E3CCBF3635CD164ECE",
+							"814CCB5333A1A0E1D2F47117",
+							"BCAA438255FB82EE61FDF465",
+							"0DFDD6DE186B184C7A475286",
+							"B3C621891003B3B15F461A7A",
+						);
+			buildRules = ();
+			dependencies = (
+							"CED4126939B5EC875380EA9F",
+							"9E770251821D041FADF3FBB7",
+						);
+			name = "Mi Kidu iPhone";
+			packageProductDependencies = (
+							"0349F94A6040739E1CA249EB",
+							"94A8BFB7CED4B74EF140890B",
+							"20908DA4B11296AAB9A304EE",
+							"78F2A970C18B0265EF6E891B",
+						);
+			productName = "Mi Kidu iPhone";
+			productReference = B22156FC00EC1153746603D7;
+			productType = "com.apple.product-type.application";
+		};
+	};
+	rootObject = B21D30A4F4CE0D013F321D87;
+}

@@ -1,0 +1,3 @@
+MIKIDU_DEVELOPMENT_TEAM =
+MIKIDU_APP_GROUP =
+#include? "Signing.local.xcconfig"

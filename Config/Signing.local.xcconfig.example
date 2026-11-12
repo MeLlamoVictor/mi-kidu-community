@@ -1,0 +1,3 @@
+// Personal signing values belong in the ignored Signing.local.xcconfig.
+MIKIDU_DEVELOPMENT_TEAM =
+MIKIDU_APP_GROUP =
