@@ -42,6 +42,10 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release";
 		};
+		0BBA34779A63558B15F73065 = {
+			isa = PBXBuildFile;
+			fileRef = F61277C32208D009311137D5;
+		};
 		0DFDD6DE186B184C7A475286 = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,9 +91,20 @@
 							"E94D050EB39C690C8BAE84AE",
 							"B29473AB8DB3FBD1E37EEDD7",
 							"B0C5FCB9A151584C8224C5FA",
+							"0BBA34779A63558B15F73065",
 							"4FBA53F8643B9D7B8411104A",
 						);
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DF7CE796B512FC48C320911 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "folder.assetcatalog";
+			path = "Apps/Shared/Resources/CommunityIcons.xcassets";
+			sourceTree = "SOURCE_ROOT";
+		};
+		1F87B2F9680FD691EDC5A8B4 = {
+			isa = PBXBuildFile;
+			fileRef = 1DF7CE796B512FC48C320911;
 		};
 		20908DA4B11296AAB9A304EE = {
 			isa = XCSwiftPackageProductDependency;
@@ -149,7 +164,9 @@
 							"DEBA41A2409DA8CA221B1BFA",
 							"D9619EDC6A6E3D60A3AC1F27",
 							"49503BB4602E4013F3D11845",
+							"F61277C32208D009311137D5",
 							"2B79BE1DEF2C235878793272",
+							"1DF7CE796B512FC48C320911",
 						);
 			name = "Shared";
 			path = "Shared";
@@ -217,6 +234,8 @@
 							SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 							IPHONEOS_DEPLOYMENT_TARGET = "18.0";
 							SWIFT_VERSION = "6.0";
+							ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+							ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "IconLagoon IconBerry IconSky IconMoss IconIris";
 							TARGETED_DEVICE_FAMILY = "1,2";
 							LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 							ONLY_ACTIVE_ARCH = "YES";
@@ -286,6 +305,10 @@
 			};
 			name = "Debug";
 		};
+		501EA21950B7011C74A6E2ED = {
+			isa = PBXBuildFile;
+			fileRef = F61277C32208D009311137D5;
+		};
 		512FD8964A0D9EEFFEE4FF44 = {
 			isa = PBXBuildFile;
 			fileRef = D9619EDC6A6E3D60A3AC1F27;
@@ -321,6 +344,8 @@
 							SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 							IPHONEOS_DEPLOYMENT_TARGET = "18.0";
 							SWIFT_VERSION = "6.0";
+							ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+							ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "IconLagoon IconBerry IconSky IconMoss IconIris";
 							TARGETED_DEVICE_FAMILY = "1,2";
 							LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 							ONLY_ACTIVE_ARCH = "NO";
@@ -347,6 +372,7 @@
 							SUPPORTED_PLATFORMS = "macosx";
 							MACOSX_DEPLOYMENT_TARGET = "15.0";
 							SWIFT_VERSION = "6.0";
+							ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
 							ONLY_ACTIVE_ARCH = "YES";
 							SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -508,6 +534,7 @@
 							"6675CB75B45476F3C502322B",
 							"512FD8964A0D9EEFFEE4FF44",
 							"1B100239BD84969DBF5DF122",
+							"501EA21950B7011C74A6E2ED",
 							"4D1035923FB44EC4999A8848",
 						);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,6 +651,7 @@
 							SUPPORTED_PLATFORMS = "macosx";
 							MACOSX_DEPLOYMENT_TARGET = "15.0";
 							SWIFT_VERSION = "6.0";
+							ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
 							ONLY_ACTIVE_ARCH = "NO";
 							SWIFT_OPTIMIZATION_LEVEL = "-O";
 							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
@@ -697,7 +725,9 @@
 		BCAA438255FB82EE61FDF465 = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = ();
+			files = (
+							"1F87B2F9680FD691EDC5A8B4",
+						);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C0D5BB1DB6573A1D56E1519E = {
@@ -707,7 +737,9 @@
 		C1EAA0EC298460BB02015054 = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = ();
+			files = (
+							"C34B928F8C717482ACD14457",
+						);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C1F4662C79AC01CE07FA2DBD = {
@@ -735,9 +767,14 @@
 							"C4FE6B8381D4D547FEEF55DA",
 							"74903CA1784BC5C7FA7A6C4B",
 							"80E8A70357BC9265842E9539",
+							"F61F98B177C91EA8A79CBEE4",
 							"81C2E5B469451EA67B1D79D0",
 						);
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C34B928F8C717482ACD14457 = {
+			isa = PBXBuildFile;
+			fileRef = 1DF7CE796B512FC48C320911;
 		};
 		C4FE6B8381D4D547FEEF55DA = {
 			isa = PBXBuildFile;
@@ -947,6 +984,16 @@
 							SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 			};
 			name = "Release";
+		};
+		F61277C32208D009311137D5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "sourcecode.swift";
+			path = "KiduFamilyLink.swift";
+			sourceTree = "<group>";
+		};
+		F61F98B177C91EA8A79CBEE4 = {
+			isa = PBXBuildFile;
+			fileRef = F61277C32208D009311137D5;
 		};
 		F7E64777246C3B8930D87C5C = {
 			isa = PBXFileReference;

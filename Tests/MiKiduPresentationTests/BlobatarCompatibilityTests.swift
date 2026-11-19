@@ -1,4 +1,5 @@
 import XCTest
+import MiKiduCore
 @testable import MiKiduPresentation
 
 final class BlobatarCompatibilityTests: XCTestCase {
@@ -9,6 +10,15 @@ final class BlobatarCompatibilityTests: XCTestCase {
         for (identity, color, expected) in Self.children {
             XCTAssertEqual(BlobatarEngine.dibujo(identidad: identity, color: color, kind: .child).svg(), expected)
         }
+    }
+
+    func testLocalNameRepeatsTheSameAvatarAcrossIndependentProfiles() throws {
+        let a = try KiduLocalProfile.create(named: "Nube de Tiza").profile
+        let b = try KiduLocalProfile.create(named: "  NUBE   DE TIZA ").profile
+        XCTAssertNotEqual(a.personKey, b.personKey)
+        let first = BlobatarEngine.dibujo(identidad: a.seedInput, color: a.color, kind: .adult)
+        let second = BlobatarEngine.dibujo(identidad: b.seedInput, color: b.color, kind: .adult)
+        XCTAssertEqual(first, second)
     }
 
     static let adults: [(String, String?, String)] = [

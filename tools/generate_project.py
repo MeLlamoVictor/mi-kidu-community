@@ -141,7 +141,11 @@ def discover_files(directory: Path) -> tuple[list[Path], list[Path]]:
         return sources, resources
 
     for path in directory.rglob("*"):
-        if any(part.startswith(".") for part in path.relative_to(directory).parts):
+        parts = path.relative_to(directory).parts
+        if any(part.startswith(".") for part in parts):
+            continue
+        # Xcode procesa un catálogo entero. Sus imágenes no son recursos sueltos.
+        if any(part.endswith(".xcassets") for part in parts[:-1]):
             continue
         if path.is_file() and path.suffix == ".swift":
             sources.append(path)
@@ -224,6 +228,10 @@ def target_settings(target: dict[str, object], configuration: str) -> dict[str, 
         str(target["deployment_setting"]): str(target["deployment"]),
         "SWIFT_VERSION": "6.0",
     }
+    if target["group"] in {"mac", "ios"}:
+        values["ASSETCATALOG_COMPILER_APPICON_NAME"] = "AppIcon"
+    if target["group"] == "ios":
+        values["ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES"] = "IconLagoon IconBerry IconSky IconMoss IconIris"
     if target["family"] is not None:
         values["TARGETED_DEVICE_FAMILY"] = str(target["family"])
     if target["group"] == "widget":
@@ -360,13 +368,14 @@ def generate(root: Path) -> str:
     shared_file_refs: dict[str, str] = {}
     for path in shared_sources + shared_resources:
         rel = path.relative_to(root).as_posix()
-        file_ref = add_file_reference(project, rel, path, True)
+        file_ref = add_file_reference(project, rel, path, path.parent == shared_dir)
         shared_children.append(file_ref)
         shared_file_refs[rel] = file_ref
     shared_group = add_group(project, "group:apps:shared", "Shared", "Shared", shared_children)
     for target_key in TARGETS:
         selected_sources = shared_sources
-        selected_resources = shared_resources
+        selected_resources = [path for path in shared_resources
+                              if path.name != "CommunityIcons.xcassets" or target_key in {"mac", "ios"}]
         if target_key == "widget":
             selected_sources = [p for p in shared_sources if p.name in WIDGET_SHARED_SOURCES]
             selected_resources = []

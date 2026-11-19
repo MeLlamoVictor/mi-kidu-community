@@ -1,5 +1,8 @@
 import SwiftUI
 import MiKiduCore
+#if os(macOS)
+import MiKiduPresentation
+#endif
 import MiKiduShell
 import MiKiduWidgetWatch
 #if canImport(WidgetKit)
@@ -8,25 +11,34 @@ import WidgetKit
 
 @MainActor
 final class KiduAppModel: ObservableObject, MiKiduAppAdapterV1, MiKiduLocalCareAdapterV1 {
-    @Published private(set) var document: KiduDocument?
+    #if os(macOS)
+    private let dockIcon = KiduCommunityMacIcon()
+    #endif
+    @Published private(set) var document: KiduDocument? {
+        didSet {
+            #if os(macOS)
+            let profile = document?.profile
+            dockIcon.update(seed: profile?.seedInput, color: profile?.color,
+                            kind: profile?.kind == .child ? .child : .adult)
+            #endif
+        }
+    }
     @Published private(set) var problem: String?
     @Published private(set) var busy = false
     @Published private(set) var reaction = 0
+    @Published private(set) var providerSending = false
     @Published var showingImporter = false
     #if canImport(WatchConnectivity) && (os(iOS) || os(watchOS))
     private var companionLink: KiduCompanionLink?
+    private var pendingWatchRequest = false
     #endif
     private var environment: KiduLocalEnvironment?
-    private var lastFailedAction: KiduCareAction?
 
     var presentation: MiKiduPresentationV1 {
         var actions: Set<MiKiduAppActionV1> = []
-        if let document {
-            actions = document.care.resting ? [.despertar, .acariciar] : [.alimentar, .beberAgua, .acariciar, .jugar, .dormir]
-        }
         if problem != nil { actions.insert(.reintentar) }
         return MiKiduPresentationV1(identidad: document == nil ? .sinVincular : .disponible,
-            nombre: document?.profile.displayName, dormido: document?.care.resting ?? false,
+            nombre: document?.profile.displayName, dormido: false,
             availability: problem.map { .error(titulo: "No se pudo completar", detalle: $0, permiteReintentar: true) } ?? .listo,
             accionesDisponibles: actions)
     }
@@ -34,13 +46,14 @@ final class KiduAppModel: ObservableObject, MiKiduAppAdapterV1, MiKiduLocalCareA
         guard let document else {
             return MiKiduSnapshotV1(state: problem == nil ? .unlinked : .error, message: problem)
         }
-        let actions: Set<MiKiduSnapshotV1.Action> = document.care.resting ? [.wake, .pet] : [.feed, .drink, .pet, .play, .sleep]
         return MiKiduSnapshotV1(state: .ready, name: document.profile.displayName,
-            isSleeping: document.care.resting, availableActions: actions,
+            isSleeping: false, availableActions: [],
             saveSync: problem != nil ? .error : .saved, message: problem)
     }
     func load() async {
         guard !busy else { return }
+        busy = true
+        defer { busy = false }
         configureCompanionLink()
         do {
             let environment = try KiduLocalEnvironment.app()
@@ -63,25 +76,64 @@ final class KiduAppModel: ObservableObject, MiKiduAppAdapterV1, MiKiduLocalCareA
             let data = try Data(contentsOf: url)
             let incoming = try JSONDecoder().decode(KiduDocument.self, from: data)
             try incoming.validate()
-            let environment = try self.environment ?? KiduLocalEnvironment.app()
-            try await environment.store.initialize(incoming, deviceID: environment.deviceID(create: true))
-            self.environment = environment
-            document = incoming
-            problem = nil
-            refreshWidgets()
-            shareCompanionLink()
+            guard incoming.profile.familySubject == nil else { throw KiduError.invalidDocument }
+            try await initialize(incoming)
         } catch { problem = safeMessage(error) }
     }
-    func perform(_ action: MiKiduAppActionV1) {
-        if action == .reintentar { retry(); return }
-        guard let care = KiduCareAction(rawValue: action.rawValue) else { return }
-        run(care)
+    func createLocalProfile(named name: String) async {
+        guard !busy, document == nil else { return }
+        busy = true
+        defer { busy = false }
+        do { try await initialize(KiduLocalProfile.create(named: name)) }
+        catch let error as KiduLocalProfile.NameError { problem = error.errorDescription }
+        catch { problem = safeMessage(error) }
     }
-    func perform(_ action: MiKiduSnapshotV1.Action) { run(action.coreAction) }
+    #if os(macOS) || os(iOS)
+    func linkFamily() {
+        guard !busy, document == nil else { return }
+        busy = true
+        problem = nil
+        Task {
+            defer { busy = false }
+            do {
+                let link = try KiduFamilyLink.inCurrentWindow()
+                try await initialize(link.authorize())
+            } catch let failure as KiduFamilyPairing.Failure {
+                problem = failure.errorDescription
+            } catch let failure as KiduError {
+                problem = failure.errorDescription
+            } catch {
+                problem = "No se pudo completar la conexión con Kidual."
+            }
+        }
+    }
+    #endif
+    private func initialize(_ incoming: KiduDocument) async throws {
+        let environment = try self.environment ?? KiduLocalEnvironment.app()
+        try await environment.store.initialize(incoming, deviceID: environment.deviceID(create: true))
+        self.environment = environment
+        document = incoming
+        problem = nil
+        refreshWidgets()
+        shareCompanionLink()
+    }
+    func perform(_ action: MiKiduAppActionV1) {
+        if action == .reintentar { retry() }
+    }
+    func perform(_ action: MiKiduSnapshotV1.Action) {}
+    #if os(macOS)
+    func sendToProvider(_ reviewed: String, executable: URL, provider: KiduAgentProvider, sessionID: UUID,
+                        openClawAgent: String) async throws -> String {
+        guard !providerSending else { throw KiduAgentProcessRunner.Failure.busy }
+        providerSending = true
+        defer { providerSending = false }
+        return try await KiduAgentProcessRunner().send(reviewed, executable: executable, provider: provider,
+                                                      sessionID: sessionID, openClawAgent: openClawAgent)
+    }
+    #endif
     func greet() { reaction += 1 }
     func retry() {
-        if let action = lastFailedAction { run(action) }
-        else { Task { await load() } }
+        Task { await load() }
     }
     func link() {
         #if os(watchOS)
@@ -92,31 +144,15 @@ final class KiduAppModel: ObservableObject, MiKiduAppAdapterV1, MiKiduLocalCareA
         #endif
     }
     func reportImportFailure(_ error: Error) { problem = "No se pudo abrir el enlace de Kidu." }
-    private func run(_ action: KiduCareAction) {
-        guard !busy, let environment else { return }
-        busy = true
-        Task {
-            defer { busy = false }
-            do {
-                let result = try await environment.store.perform(action, deviceID: environment.deviceID())
-                document = result.document
-                reaction += 1
-                lastFailedAction = nil
-                problem = nil
-                refreshWidgets()
-            } catch {
-                // perform es una transacción local: si lanza, no confirmó ninguna escritura.
-                lastFailedAction = action
-                problem = safeMessage(error)
-            }
-        }
-    }
     private func configureCompanionLink() {
         #if canImport(WatchConnectivity) && (os(iOS) || os(watchOS))
         guard companionLink == nil else { return }
         let link = KiduCompanionLink()
         link.reportProblem = { [weak self] message in self?.problem = message }
-        link.requestedDocument = { [weak self] in self?.shareCompanionLink() }
+        link.requestedDocument = { [weak self] in
+            self?.pendingWatchRequest = true
+            self?.shareCompanionLink()
+        }
         link.receiveDocument = { [weak self] data in
             Task { @MainActor [weak self] in await self?.receiveCompanionLink(data) }
         }
@@ -125,9 +161,10 @@ final class KiduAppModel: ObservableObject, MiKiduAppAdapterV1, MiKiduLocalCareA
     }
     private func shareCompanionLink() {
         #if os(iOS)
-        guard let document else { return }
-        do { companionLink?.shareDocument(try JSONEncoder().encode(document)) }
-        catch { problem = "No se pudo preparar el enlace del reloj." }
+        guard pendingWatchRequest, let document, let companionLink else { return }
+        do {
+            if companionLink.shareDocument(try JSONEncoder().encode(document)) { pendingWatchRequest = false }
+        } catch { problem = "No se pudo preparar el enlace del reloj." }
         #endif
     }
     private func receiveCompanionLink(_ data: Data) async {
@@ -157,14 +194,5 @@ final class KiduAppModel: ObservableObject, MiKiduAppAdapterV1, MiKiduLocalCareA
         #if canImport(WidgetKit)
         WidgetCenter.shared.reloadAllTimelines()
         #endif
-    }
-}
-
-extension MiKiduSnapshotV1.Action {
-    var coreAction: KiduCareAction {
-        switch self {
-        case .feed: .alimentar; case .drink: .beberAgua; case .pet: .acariciar
-        case .play: .jugar; case .sleep: .dormir; case .wake: .despertar
-        }
     }
 }

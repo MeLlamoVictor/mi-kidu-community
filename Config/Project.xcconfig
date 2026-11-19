@@ -1,3 +1,15 @@
+// Para una distribución autorizada, la instalación aporta sus valores en FamilyLink.local.xcconfig.
+KIDU_FAMILY_LINK_ENABLED = NO
+KIDU_FAMILY_CALLBACK_SCHEME = org.example.mikidu.community.callback
+KIDU_FAMILY_CLIENT_ID =
+KIDU_FAMILY_AUTHORIZATION =
+KIDU_FAMILY_EXCHANGE =
+KIDU_FAMILY_REDIRECT =
+KIDU_FAMILY_EXCHANGE_FIELDS =
+KIDU_FAMILY_PROFILE_FIELDS =
+
 MIKIDU_DEVELOPMENT_TEAM =
 MIKIDU_APP_GROUP =
 #include? "Signing.local.xcconfig"
+
+#include? "FamilyLink.local.xcconfig"

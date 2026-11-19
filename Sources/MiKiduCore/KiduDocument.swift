@@ -10,15 +10,17 @@ public struct KiduProfile: Codable, Equatable, Sendable {
     public let kind: KiduAvatarKind
     public let displayName: String
     public let color: String?
+    public let familySubject: UUID?
 
     public init(personKey: UUID, seedInput: String, seedVersion: Int = 1,
-                displayName: String, kind: KiduAvatarKind, color: String? = nil) {
+                displayName: String, kind: KiduAvatarKind, color: String? = nil, familySubject: UUID? = nil) {
         self.personKey = personKey
         self.seedInput = seedInput
         self.seedVersion = seedVersion
         self.kind = kind
         self.displayName = displayName
         self.color = color
+        self.familySubject = familySubject
     }
 }
 
@@ -78,6 +80,11 @@ public struct KiduDocument: Codable, Equatable, Sendable {
         let world = try Self.readWorld(originalWorld)
         guard world.version == 1 else { throw KiduError.invalidDocument }
         guard world.cuenta == profile.personKey else { throw KiduError.wrongOwner }
+        if let subject = profile.familySubject {
+            guard subject == profile.personKey, KiduFamilyPairing.isSeed(profile.seedInput) else {
+                throw KiduError.invalidDocument
+            }
+        }
         if let color = profile.color {
             guard ["a1", "a2", "a3", "a4"].contains(color) || color.range(of: "^#[0-9a-fA-F]{6}$", options: .regularExpression) != nil else {
                 throw KiduError.invalidDocument

@@ -15,5 +15,19 @@
 	<key>UILaunchScreen</key><dict/>
 	<key>UIApplicationSceneManifest</key><dict><key>UIApplicationSupportsMultipleScenes</key><true/></dict>
 	<key>UIRequiredDeviceCapabilities</key><array><string>arm64</string></array>
+	<key>KiduFamilyLinkEnabled</key><string>$(KIDU_FAMILY_LINK_ENABLED)</string>
+	<key>KiduFamilyAuthorization</key><string>$(KIDU_FAMILY_AUTHORIZATION)</string>
+	<key>KiduFamilyExchange</key><string>$(KIDU_FAMILY_EXCHANGE)</string>
+	<key>KiduFamilyClientID</key><string>$(KIDU_FAMILY_CLIENT_ID)</string>
+	<key>KiduFamilyRedirect</key><string>$(KIDU_FAMILY_REDIRECT)</string>
+	<key>KiduFamilyExchangeFields</key><string>$(KIDU_FAMILY_EXCHANGE_FIELDS)</string>
+	<key>KiduFamilyProfileFields</key><string>$(KIDU_FAMILY_PROFILE_FIELDS)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key><string>Mi Kidu Community Familia</string>
+			<key>CFBundleURLSchemes</key><array><string>$(KIDU_FAMILY_CALLBACK_SCHEME)</string></array>
+		</dict>
+	</array>
 </dict>
 </plist>

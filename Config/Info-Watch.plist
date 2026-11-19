@@ -13,6 +13,6 @@
 	<key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>MiKiduAppGroup</key><string>$(MIKIDU_APP_GROUP)</string>
 	<key>WKCompanionAppBundleIdentifier</key><string>org.example.mikidu.community</string>
-	<key>WKWatchKitApp</key><true/>
+	<key>WKApplication</key><true/>
 </dict>
 </plist>

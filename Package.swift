@@ -24,7 +24,7 @@ targets += [
     .target(name: "MiKiduShell", dependencies: ["MiKiduWindowMotion"]),
     .target(name: "MiKiduWidgetWatch"),
     .target(name: "MiKiduPresentation", dependencies: ["MiKiduCore"]),
-    .testTarget(name: "MiKiduPresentationTests", dependencies: ["MiKiduPresentation"])
+    .testTarget(name: "MiKiduPresentationTests", dependencies: ["MiKiduPresentation", "MiKiduCore"])
 ]
 #endif
 let package = Package(name: "MiKidu", platforms: [.macOS(.v15), .iOS(.v18), .watchOS(.v11)], products: products, targets: targets)

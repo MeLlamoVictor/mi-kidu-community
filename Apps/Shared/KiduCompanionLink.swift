@@ -23,8 +23,17 @@ final class KiduCompanionLink: NSObject, WCSessionDelegate {
         }
         session.transferUserInfo(["kiduLinkRequest": true])
     }
-    func shareDocument(_ data: Data) {
-        guard session.activationState == .activated else { return }
+    func shareDocument(_ data: Data) -> Bool {
+        guard session.activationState == .activated else {
+            reportProblem?("El enlace con Apple Watch aún no está listo.")
+            return false
+        }
+        #if os(iOS)
+        guard session.isPaired, session.isWatchAppInstalled else {
+            reportProblem?("Instala Mi Kidu en el Apple Watch enlazado.")
+            return false
+        }
+        #endif
         do {
             if data.count < 48_000 {
                 try session.updateApplicationContext(["kiduLinkDocument": data])
@@ -35,16 +44,16 @@ final class KiduCompanionLink: NSObject, WCSessionDelegate {
                 try data.write(to: file, options: .atomic)
                 session.transferFile(file, metadata: ["kiduLinkDocument": true])
             }
-        } catch { reportProblem?("No se pudo enviar el enlace al reloj.") }
+            return true
+        } catch {
+            reportProblem?("No se pudo enviar el enlace al reloj.")
+            return false
+        }
     }
     nonisolated func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        let succeeded = activationState == .activated && error == nil
+        guard activationState != .activated || error != nil else { return }
         Task { @MainActor [weak self] in
-            if succeeded {
-                #if os(iOS)
-                self?.requestedDocument?()
-                #endif
-            } else { self?.reportProblem?("No se pudo activar el enlace con el reloj.") }
+            self?.reportProblem?("No se pudo activar el enlace con el reloj.")
         }
     }
     nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {

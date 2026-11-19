@@ -4,6 +4,7 @@
 DerivedData/
 **/xcuserdata/
 Config/Signing.local.xcconfig
+Config/FamilyLink.local.xcconfig
 .env
 .env.*
 !.env.example

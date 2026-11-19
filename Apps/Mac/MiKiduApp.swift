@@ -37,12 +37,16 @@ struct MiKiduApp: App {
     }
     @MainActor private func release() {
         desktop.mostrar(adapter: model, theme: theme,
-            menu: { adapter, _, close in KiduPetMenu(model: adapter, close: close) }) {
+            menu: { adapter, _, close in KiduAgentMenu(model: adapter, close: close, open: openAgent) }) {
                 if let document = model.document {
-                    KiduAvatarView(profile: document.profile, resting: document.care.resting, reaction: model.reaction)
-                        .onTapGesture { model.perform(MiKiduAppActionV1.acariciar) }
+                    KiduAvatarView(profile: document.profile, resting: false, reaction: model.reaction)
+                        .onTapGesture(perform: openAgent)
                 }
             }
+    }
+    @MainActor private func openAgent() {
+        openWindow(id: "mi-kidu")
+        NSApp.activate(ignoringOtherApps: true)
     }
     @MainActor private var theme: MiKiduShellThemeV1 {
         MiKiduShellThemeV1(window: KiduTheme.window, card: KiduTheme.card, control: KiduTheme.control,
@@ -54,9 +58,10 @@ struct MiKiduApp: App {
                 controlRadius: 12, controlHeight: 44, figureSize: 112))
     }
 }
-private struct KiduPetMenu: View {
+private struct KiduAgentMenu: View {
     @ObservedObject var model: KiduAppModel
     let close: () -> Void
+    let open: () -> Void
     @State private var expanded = false
     var body: some View {
         Button { expanded.toggle() } label: {
@@ -67,24 +72,14 @@ private struct KiduPetMenu: View {
         .popover(isPresented: $expanded, arrowEdge: .top) {
             VStack(alignment: .leading, spacing: 6) {
                 Text(model.document?.profile.displayName ?? "Mi Kidu").font(KiduTheme.font(16, .heavy)).padding(.bottom, 6)
-                item("Acariciar", "hand.draw.fill", action: .acariciar)
-                if model.document?.care.resting == true { item("Despertar", "sun.max.fill", action: .despertar) }
-                else {
-                    item("Alimentar", "carrot.fill", action: .alimentar)
-                    item("Agua", "drop.fill", action: .beberAgua)
-                    item("Jugar", "gamecontroller.fill", action: .jugar)
-                    item("Descansar", "moon.zzz.fill", action: .dormir)
-                }
+                Button { expanded = false; open() } label: {
+                    Label("Abrir agente", systemImage: "rectangle").frame(maxWidth: .infinity, minHeight: 36, alignment: .leading)
+                }.buttonStyle(.plain)
                 Button { expanded = false; close() } label: { Label("Recoger", systemImage: "arrow.down.right.and.arrow.up.left").frame(maxWidth: .infinity, minHeight: 36, alignment: .leading) }.buttonStyle(.plain)
             }
             .font(KiduTheme.font(14, .semibold)).foregroundStyle(KiduTheme.text)
             .padding(14).frame(width: 210).background(KiduTheme.card)
             .presentationBackground(KiduTheme.card)
         }
-    }
-    private func item(_ title: String, _ icon: String, action: MiKiduAppActionV1) -> some View {
-        Button { model.perform(action); expanded = false } label: {
-            Label(title, systemImage: icon).frame(maxWidth: .infinity, minHeight: 36, alignment: .leading)
-        }.buttonStyle(.plain).disabled(model.busy)
     }
 }
