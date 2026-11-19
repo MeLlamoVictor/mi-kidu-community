@@ -1,34 +1,54 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/readme/hero-dark.png">
+  <img src="docs/readme/hero-light.png" width="1440" height="520" alt="Mi Kidu Community illustrated with peach, blue and mint Kidu icons around a brief marked as reviewed.">
+</picture>
+
 # Mi Kidu Community
 
-Kidu es un agente para preparar encargos en Mac y iPhone. Puedes ordenar un objetivo, contexto, permisos y resultado esperado, revisar el texto y llevarlo a OpenClaw, Codex o Claude. En Mac, puedes recibir respuestas de tus propios CLI de OpenClaw, Codex y Claude Code o de un adaptador compatible. El perfil y la preparación funcionan sin un servidor ni una cuenta.
+**Give your AI a better brief.** Mi Kidu is an open source companion for Mac and iPhone. Turn an idea into a clear task, review exactly what you’re sharing, then hand it to the AI tools you already use.
 
-## Probar
+[Try it](#try-it) · [Connect a provider](#connect-a-provider) · [Make a first contribution](#make-a-first-contribution) · [Leer en español](README.es.md)
 
-Requisitos de desarrollo: Swift 6, Xcode compatible con macOS 15, iOS 18 y watchOS 11, y Python 3 para regenerar el proyecto. SQLite es una biblioteca del sistema. El proyecto no instala paquetes remotos.
+## What you can try today
+
+| | Mac | iPhone |
+| --- | --- | --- |
+| **Your Kidu** | Create a profile by name. The character can sit on your desktop and appear in the Dock. | Create a profile by name. Choose a bundled Home Screen icon in **Perfil**. |
+| **Your brief** | Add a goal, context, limits and an expected result. Edit the draft before handing it off. | Prepare and review the brief in the same editor. |
+| **Your providers** | Send a reviewed brief to your own OpenClaw, Codex CLI, Claude Code or local adapter and read the reply in Kidu. You can also copy it. | Copy the reviewed text and send it from your own provider session. |
+
+A paired Apple Watch can request the Kidu profile from the iPhone.
+
+The same normalized name gives Kidu the same shape. The profile and draft work without a provider account. The public build leaves Kidual family profile linking disabled. [How the profile works](docs/PERFIL-FAMILIA.md) · [Privacy](PRIVACY.md)
+
+## Try it
+
+Build from source on a Mac with Swift 6 and Xcode. The app targets macOS 15 and iOS 18 or later. Python 3 is used to check the generated project.
 
 ```sh
-swift test
-python3 tools/generate_project.py --check
+git clone https://github.com/MeLlamoVictor/mi-kidu-community.git
+cd mi-kidu-community
 open MiKidu.xcodeproj
 ```
 
-Elige el esquema `MiKidu-Mac` o `MiKidu-iPhone`. Para un dispositivo físico, usa tu configuración de firma en `Config/Signing.local.xcconfig`, que Git ignora. Esta edición usa identificadores de desarrollo propios y el contenedor `MiKiduCommunity`.
+Run **MiKidu-Mac** for the desktop app or select **MiKidu-iPhone** and an iPhone simulator. For a physical iPhone, copy [the signing example](Config/Signing.local.xcconfig.example) to `Config/Signing.local.xcconfig` and set your own signing values. See [what has been validated](VALIDATION.md) for build and device coverage.
 
-1. Escribe un nombre o apodo ficticio, como **Nube de Tiza**, y pulsa **Continuar con mi nombre**. El mismo nombre normalizado da la misma forma. El perfil tiene un identificador local independiente.
-2. Abre **Perfil** para ver el nombre y el origen del perfil.
-3. En **Preparar contexto**, escribe un objetivo y añade los hechos, límites o formato de entrega que hagan falta. Por ejemplo, «Explica cómo organizar una reunión de 15 minutos y dame una agenda de tres puntos».
-4. Pulsa **Revisar encargo**, edita el texto y elige un proveedor. **Copiar para…** pasa el texto revisado al portapapeles. Pégalo y envíalo cuando quieras en el proveedor elegido. En Mac, también puedes elegir el ejecutable del proveedor y pulsar **Enviar** para ver su respuesta en Kidu.
+1. Enter the fictional name **Nube de Tiza** and choose **Continuar con mi nombre**. On an empty installation, you can also choose **Abrir una copia** and import the [fictional demo profile](Examples/demo-kidu.json).
+2. Open **Preparar contexto** and give Kidu a small task. Try “Plan a 15-minute meeting for a fictional book club.” Ask for three agenda items and a time for each.
+3. Choose **Revisar encargo**, edit the draft, then copy it or use a provider you’ve configured on Mac.
 
-**Entrar con Kidual** explica el estado de la vinculación y ofrece la web oficial. El cliente de perfil Familia está preparado y queda apagado hasta que Kidual habilite y verifique el flujo oficial. Consulta [el contrato de vinculación](docs/PERFIL-FAMILIA.md).
+## Connect a provider
 
-Puedes probar también **Abrir una copia** con el perfil ficticio de [Examples/demo-kidu.json](Examples/demo-kidu.json) en un almacén vacío. En Mac, **Liberar** abre el avatar de escritorio y desde él se puede volver al espacio del agente. El Apple Watch emparejado puede solicitar el perfil de la instalación de iPhone.
+On Mac, pick a provider and choose the executable you installed. OpenClaw also needs the ID of an agent you’ve configured for conversation. Kidu passes the reviewed text on standard input and shows the response or an error. The program you choose runs with the permissions of your own installation. [Provider setup and local adapter example](docs/PROVEEDORES.md)
 
-### Icono del personaje
+**Want a reply without a provider account?** The guide includes a local adapter that simply echoes your brief. It’s a way to check the full Mac handoff with fictional text.
 
-En Mac, el Dock dibuja el Kidu del perfil activo y adapta el fondo al aspecto claro u oscuro del sistema. En iPhone, abre **Perfil** para aplicar la variante incluida que más se parece a tu Kidu o recuperar el icono principal. El nombre y el dibujo del perfil se procesan en el dispositivo.
+## Make a first contribution
 
-## Colaborar
+Open Kidu on Mac with **Nube de Tiza** and try preparing and reviewing a brief using only the keyboard. Check whether focus follows the order of the fields and returns to the right place when you close the review. If anything gets in the way, [check for an existing issue](https://github.com/MeLlamoVictor/mi-kidu-community/issues) and [report the steps](https://github.com/MeLlamoVictor/mi-kidu-community/issues/new?template=bug_report.md) with your Mac version and the expected and actual result.
 
-Lee [CONTRIBUTING.md](CONTRIBUTING.md) antes de enviar una propuesta. Buscamos mejoras en la preparación de encargos, accesibilidad del editor y presencia en escritorio. Usa [la guía de proveedores](docs/PROVEEDORES.md) con cuentas y preferencias propias.
+If you’d like to fix it, fork the repository, make one focused change and run `swift test`. Include how you checked the result in the pull request. Documentation fixes, accessibility improvements and feedback on the local adapter are welcome in English or Spanish. [Contribution guide](CONTRIBUTING.md)
 
-El repositorio distribuye código y datos ficticios. El código se ofrece con [licencia MIT](LICENSE) y el motor procedural conserva la [atribución de Blobatar](LICENSE-Blobatar.txt). Lee [PRIVACY.md](PRIVACY.md) para saber qué guarda la app y [VALIDATION.md](VALIDATION.md) para conocer las comprobaciones de esta edición.
+## License
+
+Code is available under the [MIT License](LICENSE). The procedural avatar engine retains its [Blobatar attribution and license](LICENSE-Blobatar.txt). The cover illustration uses icons from the public project.
